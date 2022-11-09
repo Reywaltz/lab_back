@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "project_uni"
+version = "0.1.0"
+description = ""
+authors = ["Reywaltz"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.82.0"
+uvicorn = "^0.18.3"
+asyncpg = "^0.26.0"
+pydantic = "^1.10.2"
+loguru = "^0.6.0"
+orjson = "^3.8.0"
+aiosqlite = "^0.17.0"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.971"
+wemake-python-styleguide = "^0.16.1"
+flakeheaven = "^3.0.0"
+isort = "^5.10.1"
+pre-commit = "^2.20.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+exclude = [".venv", "pgdata", "migrations"]
+ignore_missing_imports=true
+
+[tool.isort]
+include_trailing_comma = true
+use_parentheses = true
+multi_line_output = 3
+
+[tool.flakeheaven]
+show_source = true
+statistics = false
+doctests = true
+enable_extensions = "G"
+accept_encodings = "utf-8"
+max_complexity = 6
+max-local-variables = 5
+max_line_length = 100
+
+[tool.coverage.report]
+exclude_lines = [
+    'ABCMeta',
+    'abstractclassmethod',
+    '@(abc\.)?abstractmethod',
+    'raise NotImplementedError',
+]
